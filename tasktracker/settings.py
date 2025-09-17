@@ -9,9 +9,9 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
-
+import  dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,13 +25,15 @@ SECRET_KEY = 'django-insecure-04phw+-=f!=0w*kzr=xbup=+dk$n8j&6vbenzniknda_=*%%r=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["c57942f3e472.ngrok-free.app", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["task-tracker-app-ykap.onrender.com", "localhost", "127.0.0.1"]
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.urls',
+    'django.apps',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -87,6 +89,8 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+database_url = 'postgresql://developer:EUVNwSCma0ZxUgrefFRDLtV0cIAPvLf3@dpg-d356cer3fgac73b6o2jg-a/task_tracker_42ar'
+DATABASES['default'] =  dj_database_url.parse(database_url)
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -103,7 +107,7 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
      "http://localhost:3000",
      "http://127.0.0.1:3000",
-     "https://c57942f3e472.ngrok-free.app",
+     "https://task-tracker-app-ykap.onrender.com",
  ]
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
