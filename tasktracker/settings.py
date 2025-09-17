@@ -89,7 +89,11 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+#On live
 database_url = 'postgresql://developer:EUVNwSCma0ZxUgrefFRDLtV0cIAPvLf3@dpg-d356cer3fgac73b6o2jg-a/task_tracker_42ar'
+# local
+# database_url = 'postgresql://developer:EUVNwSCma0ZxUgrefFRDLtV0cIAPvLf3@dpg-d356cer3fgac73b6o2jg-a.oregon-postgres.render.com/task_tracker_42ar'
+
 DATABASES['default'] =  dj_database_url.parse(database_url)
 
 REST_FRAMEWORK = {
@@ -108,7 +112,12 @@ CORS_ALLOWED_ORIGINS = [
      "http://localhost:3000",
      "http://127.0.0.1:3000",
      "https://task-tracker-app-ykap.onrender.com",
- ]
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "https://task-tracker-app-ykap.onrender.com",
+]
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
